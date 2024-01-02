@@ -7,9 +7,11 @@ root = tkinter.Tk()
 # ウィンドウにつけるタイトル
 root.title("タイトル")
 # キャンパスの高さと幅を指定と背景色の指定
-cvs = tkinter.Canvas(width = 600, height = 400, bg = "black")
-# キャンパスに、左上を基準とした座標X＝580、Y＝380の、赤の、太さ5の線を引く
-cvs.create_line(0, 0, 580, 380, fill = "red", width = 5)
+cvs = tkinter.Canvas(width = 800, height = 600, bg = "white")
+# キャンパスに、左上を基準とした座標X＝580、Y＝380の、緑の、太さ5の線を引く
+cvs.create_line(0, 0, 580, 380, fill = "green", width = 5)
+cvs.create_line(0, 300, 800, 300, fill = "red")
+cvs.create_line(400, 0, 400, 600, fill = "blue")
 # キャンパスをウィンドウに配置
 cvs.pack()
 # ウィンドウの処理を実行
