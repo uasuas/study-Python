@@ -17,10 +17,13 @@ color = [
   ["navy", "blue", "skyblue", "cyan"]
 ]
 
+# ３行作成
 for y in range(3):
+    # ４列作成
     for x in range(4):
         X = x * 200
         Y = y * 200
+        # 配列の行「y」列「x」を表す
         cvs.create_oval(X, Y, X+200, Y+200, fill=color[y][x])
 
 cvs.pack()
