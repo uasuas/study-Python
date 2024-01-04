@@ -10,6 +10,7 @@ def count():
   n = n + 1
   # 前回表示した数字を削除
   cvs.delete("all")
+  # （位置の指定、、表示するn、文字サイズと種類）
   cvs.create_text(200, 100, text=n, font=("System", 80))
   # 次の処理の呼び出しを（1000ミリ秒後, def countを呼び出し）
   root.after(1000, count)
