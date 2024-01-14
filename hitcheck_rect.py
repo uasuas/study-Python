@@ -15,8 +15,13 @@ def move(e):
   x1 = e.x
   y1 = e.y
   col = "red"
+  # 接触した際TURE
   if abs(x1-x2)<=(w1+w2)/2 and abs(y1-y2)<=(h1+h2)/2:
     col = "pink"
+    cvs.delete("RED_RECT")
+    cvs.create_rectangle(x1-w1/2, y1-h1/2, x1+w1/2, y1+h1/2, fill=col, outline="white", tag="RED_RECT")
+  # 接触していない時の処理がなかった為、重なっていない時には図形が作成されない箇所を修正
+  else:
     cvs.delete("RED_RECT")
     cvs.create_rectangle(x1-w1/2, y1-h1/2, x1+w1/2, y1+h1/2, fill=col, outline="white", tag="RED_RECT")
 
