@@ -8,6 +8,7 @@ score = 0
 time = 0
 key = ""
 
+# 押されたキーの情報をグローバル変数keyに格納。
 def pkey(e):
   global key
   key = e.keysym
@@ -17,9 +18,13 @@ def main():
   global scene, score, time, key
   cvs.delete("all")
   for i in range(5):
+    # i番目の穴のX座標を計算して代入し穴の画像を均等に配置。
     x = 200*i+100
+    # tkinter.PhotoImage(file="image/hole.png")がゲームスタート前は[0, 0, 0, 0, 0]で展開する。
     cvs.create_image(x, 160, image=img[holes[i]])
+    # 穴の画像に番号をふる。
     cvs.create_text(x, 280, text=i+1, font=FNT, fill="yellow")
+    # hitした際に穴の画像に置き換える処理。
     if holes[i]==2:
       holes[i] = 0
   cvs.create_text(200, 30, text="SCORE "+str(score), font=FNT, fill="white")
