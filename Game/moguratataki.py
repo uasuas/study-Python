@@ -38,14 +38,21 @@ def main():
       score = 0
       time = 100
 
+  # ゲーム内の処理。
   if scene == "ゲーム":
+    # 画像をランダムにtkinter.PhotoImage(file="image/mole.png")に切り替える。
     r = random.randint(0, 4)
     holes[r] = 1
+    # プレイヤーが押したキーが文字列として "1" 以上かつ "5" 以下であるかを確認。
     if "1"<=key and key<="5":
+      # int() 関数を使ってこの文字列を整数に変換し、1を引くことで、0〜4の範囲のインデックスに変換。
       m = int(key)-1
+      # ハンマーの画像を表示する位置決め。
       x = m*200+100
       cvs.create_image(x, 60, image=ham)
+      # 押されたキーの位置と配列内の値（モグラが出ている１）が一致しているかを確認。
       if holes[m]==1:
+        # 叩かれた（２）ステータスに変更。
         holes[m] = 2
         score = score + 100
     time = time - 1
