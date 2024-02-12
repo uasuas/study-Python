@@ -7,6 +7,7 @@ scene = "タイトル"
 score = 0
 time = 0
 key = ""
+count = 0
 
 # 押されたキーの情報をグローバル変数keyに格納。
 def pkey(e):
@@ -14,7 +15,7 @@ def pkey(e):
   key = e.keysym
 
 def main():
-  global scene, score, time, key
+  global scene, score, time, key, count
   cvs.delete("all")
   for i in range(5):
     # i番目の穴のX座標を計算して代入し穴の画像を均等に配置。
@@ -54,8 +55,13 @@ def main():
         # 叩かれた（２）ステータスに変更。
         holes[m] = 2
         score = score + 100
+        count += 1
       elif holes[m] == 0:
         score = score - 100
+    # 20体ヒットごとにtimeボーナス10を追加。
+    if count >= 1 and count % 20 == 0:
+      time += 10
+      cvs.create_text(500, 30, text="Time +10", font=FNT, fill="blue")
     time = time - 1
     if time == 0:
       scene = "ゲームオーバー"
