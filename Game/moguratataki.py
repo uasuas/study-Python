@@ -13,7 +13,6 @@ def pkey(e):
   global key
   key = e.keysym
 
-
 def main():
   global scene, score, time, key
   cvs.delete("all")
