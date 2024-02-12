@@ -24,7 +24,7 @@ def main():
     # 穴の画像に番号をふる。
     cvs.create_text(x, 280, text=i+1, font=FNT, fill="yellow")
     # hitした際に穴の画像に置き換える処理。
-    if holes[i]==2:
+    if holes[i] == 2:
       holes[i] = 0
   cvs.create_text(200, 30, text="SCORE "+str(score), font=FNT, fill="white")
   cvs.create_text(800, 30, text="TIME "+str(time), font=FNT, fill="yellow")
@@ -50,10 +50,12 @@ def main():
       x = m*200+100
       cvs.create_image(x, 60, image=ham)
       # 押されたキーの位置と配列内の値（モグラが出ている１）が一致しているかを確認。
-      if holes[m]==1:
+      if holes[m] == 1:
         # 叩かれた（２）ステータスに変更。
         holes[m] = 2
         score = score + 100
+      elif holes[m] == 0:
+        score = score - 100
     time = time - 1
     if time == 0:
       scene = "ゲームオーバー"
